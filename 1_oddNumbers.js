@@ -1,3 +1,11 @@
+/**
+ * Returns Odd Numbers in range.
+ *
+ * @param {Number} first
+ * @param {Number} second
+ *
+ * @return {Array}
+ */
 function oddNumbers (first, second)
 {
     var i,

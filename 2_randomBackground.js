@@ -23,6 +23,3 @@ function getRandomColorNumber ()
 {
    return Math.floor(Math.random() * 256)
 }
-
-randomBackground();
-

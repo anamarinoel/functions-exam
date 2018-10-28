@@ -1,12 +1,12 @@
 /**
  * Returns random Number between x and y.
  *
- * @param {Number} x
- * @param {Number} y
+ * @param {Number} min
+ * @param {Number} max
  *
  * @return {Number}
  */
-function randomNumber(x = 5, y = 20)
+function randomNumber(min = 5, max = 20)
 {
-    return Math.floor(Math.random() * x + y);
+    return Math.floor(Math.random() * (max - min)) + min;
 }

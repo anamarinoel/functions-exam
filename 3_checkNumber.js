@@ -4,19 +4,33 @@
  * @param {Number} min
  * @param {Number} max
  * @param {Number} attempts
+ * @param {Number} computerChoice
  */
-function checkNumber(min, max, attempts) {
-    var randomNumber = getRandomNumber(min, max);
+function checkNumber(min, max, attempts, computerChoice = null)
+{
+    if (attempts === 0) {
+        alert("Izgubio si! Pobednicki broj je " + computerChoice);
+        return false;
+    }
+
+    if (!computerChoice) {
+        computerChoice = getRandomNumber(min, max);
+    }
+
     var userChoice = getUserChoice();
+    var isUserWinCheck = isUserWin(computerChoice, parseInt(userChoice));
 
-    for (var i = 0; i < attempts; i++) {
-        console.log(i);
-        var result = isUserWin(randomNumber, parseInt(userChoice));
+    if (isUserWinCheck) {
+        alert("Pobedio si!!! Pogodio si broj koji sam zamislio");
+    } else {
+        var message = 'Trazeni broj je manji!';
 
-        if (result) {
-            alert("Pobedio si!!! Pogodio si broj koji sam zamislio");
-            break;
+        if (computerChoice > userChoice) {
+            message = 'Trazeni broj je veci!'
         }
+
+        alert(message);
+        checkNumber(min, max, attempts - 1, computerChoice);
     }
 }
 
@@ -28,7 +42,8 @@ function checkNumber(min, max, attempts) {
  *
  * @return {Boolean}
  */
-function isUserWin(computerChoice, userChoice) {
+function isUserWin(computerChoice, userChoice)
+{
     return computerChoice === userChoice;
 }
 
@@ -39,7 +54,8 @@ function isUserWin(computerChoice, userChoice) {
  *
  * @return {string}
  */
-function getUserChoice(message = "Pogodi Broj!") {
+function getUserChoice(message = "Pogodi Broj!")
+{
     var userChoice = prompt(message);
 
     return userChoice;
@@ -53,7 +69,8 @@ function getUserChoice(message = "Pogodi Broj!") {
  *
  * @return {Number}
  */
-function getRandomNumber(min, max) {
+function getRandomNumber(min, max)
+{
     var randomNumber = Math.floor(Math.random() * (max - min)) + min;
 
     return randomNumber;

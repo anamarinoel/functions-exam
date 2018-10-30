@@ -120,12 +120,6 @@ function textLength(text) {
  * @param {String} text
  */
 function changeCharacters(findChar, replacementChar, text) {
-    var rx = new RegExp("/a/g");
-    return text.replace(/a/g, replacementChar);
+    var rx = new RegExp(findChar, 'g');
+    return text.replace(rx, replacementChar);
 }
-
-
-// console.log(occurrenceCount('a', 'jajajajajaa'));
-// console.log(caseInsensitiveOccurrenceCount('a', 'jajajajajaa'));
-// console.log(textLength('ja ja 4554545 jaj000098767890ajaa'));
-// console.log(changeCharacters('a', 'f', 'JavaScript'));

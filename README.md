@@ -1,5 +1,8 @@
 # Zadaci sa funkcijama 
 
+Resenja zadataka iz nastavka mozete pogledati i na linku u nastavku:
+http://noel.devrise.rs/portfolio/functions/
+
 
 #### 1. Napišite funkciju koja vraća sve neparne brojeve u rasponu koji joj zadamo
     neparniBrojevi(10,16);// treba da vrati 11,13,15
